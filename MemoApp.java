@@ -1,5 +1,6 @@
 package MemoEx;
 
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class MemoApp {
@@ -57,7 +58,6 @@ public class MemoApp {
                     catch (NumberFormatException e){
                         System.out.println("잘못된 입력입니다. 숫자를 입력해주세요.");
                     }
-
                     memoList.updateMemo(number);
                     break;
 
@@ -85,8 +85,8 @@ public class MemoApp {
         String pwInput = sc.nextLine();
         System.out.print("메모를 입력하세요 >>");
         String memoInput = sc.nextLine();
-        MemoVO memo = new MemoVO();
-        MemoList.addMemo(nameInput, pwInput, memoInput);
+        LocalDateTime dateTime = LocalDateTime.now();
+        MemoList.addMemo(nameInput, pwInput, dateTime,  memoInput);
         MemoList.displayMemo();
     }
 

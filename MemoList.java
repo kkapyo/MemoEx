@@ -11,9 +11,9 @@ public class MemoList {
         memos = new LinkedList<>(); // MemoVO 객체를 저장하기 위한 ArrayList 객체
     }
 
-    public static void addMemo(String name, String pw, String memo) {
+    public static void addMemo(String name, String pw, LocalDateTime date, String memo) {
         int num = memos.size() + 1;
-        memos.add(new MemoEx.MemoVO(num, name, pw, memo));
+        memos.add(new MemoEx.MemoVO(num, name, pw, date, memo));
         // 메모를 리스트에 추가하는 메서드
     }
 
