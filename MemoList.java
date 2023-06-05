@@ -1,8 +1,6 @@
 package MemoEx;
 import java.time.LocalDateTime;
-import java.util.Scanner;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class MemoList {
     private static List<MemoVO> memos; // 메모들 저장하는 ArrayList
@@ -23,9 +21,9 @@ public class MemoList {
     }
 
     public void updateMemo(int idx) {
-        // idx에 해당하는 메모를 업데이트하는 메서드 (수정)
-        int adjustedIndex = idx - 1;
-        if(memos.get(adjustedIndex) == null){
+        MemoVO memo = getMemo(idx);
+
+        if(memos == null){
             System.out.println("메모가 존재하지 않습니다.");
         }
         else{
@@ -33,15 +31,12 @@ public class MemoList {
             System.out.print("패스워드 입력 : ");
             Scanner sc = new Scanner(System.in);
             String psw = sc.next();
-            if(memos.get(adjustedIndex).getPassword().equals(psw)){       //패스워드 맞는지 화깅ㄴ
+            if(memo.getPassword().equals(psw)){       //패스워드 맞는지 확인
                 System.out.println("수정할 내용을 입력해주세요.");
                 String str = sc.next();
-                memos.get(adjustedIndex).setContent(str);                 //게시글 수정
-                memos.get(adjustedIndex).setCreatedDate(LocalDateTime.now());//날짜 수
+                memo.setContent(str);                 //게시글 수정
+                memo.setCreatedDate(LocalDateTime.now());//날짜 수
                 System.out.println("수정했습니다.");
-
-                //updateIdx(idx);
-                //memos.get(idx).setIdx(1);
             }
             else {
                 System.out.println("비밀번호가 틀립니다.");
@@ -80,13 +75,8 @@ public class MemoList {
     }
 
     public void deleteMemo(int idx) {
-        ////////////////////////////////////////////////////////////////////////
-        // (1) idx값으로 MemoVO 객체 얻기
-        //MemoVO memo = memos.get(idx);
-
-        // (2) 삭제 시 글 번호를 넘겨 받고 리스트에서 글 번호에 해당하는  글 1건을 얻어와 리턴
+        // 삭제 시 글 번호를 넘겨 받고 리스트에서 글 번호에 해당하는  글 1건을 얻어와 리턴
         MemoVO memo = getMemo(idx);
-        ////////////////////////////////////////////////////////////////////////
 
         if(memo == null){
             System.out.println("해당 메모가 존재하지 않습니다.");
@@ -100,15 +90,9 @@ public class MemoList {
 
             if(memo.getPassword().equals(pw)){
                 // 비밀번호 일치시 삭제
-
-                ////////////////////////////////////////////////////////////////////////
-                // (1) 인덱스값으로 해당 객체 제거하기
-                //memos.remove(idx);
-
-                // (2) loop로 하나씩 getIdx()으로 돌면서 해당 idx가 맞으면 그 인덱스 return
+                // loop로 하나씩 getIdx()으로 돌면서 해당 idx가 맞으면 그 인덱스 return
                 int index = getMemoIndex(idx);
                 memos.remove(index-1);
-                ////////////////////////////////////////////////////////////////////////
 
                 // 글 삭제 후 글 번호를 다시 붙여준다.
                 //글이 삭제된 후 새 글이 입력될 때 idx가 기존 idx값에 이어서 1씩 증가할 수 있도록 count의 값을 수정한다.
@@ -137,6 +121,22 @@ public class MemoList {
             }
             return; // 메인으로 돌아가기
         }
+
+        Collections.sort(memos, new Comparator<MemoVO>() {
+            // 최신 날짜순으로 정렬
+            @Override
+            public int compare(MemoVO o1, MemoVO o2) {
+
+                LocalDateTime r1 = o1.getCreatedDate();
+                LocalDateTime r2 = o2.getCreatedDate();
+
+                int diff = r1.compareTo(r2);
+                if(diff < 0)
+                    return +1;
+                else
+                    return -1;
+            }
+        });
 
         for (MemoVO memo : memos) {
             System.out.println("글 번호: " + memo.getIdx());
