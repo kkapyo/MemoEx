@@ -152,7 +152,7 @@ public class MemoList {
         System.out.println("\n1. 돌아가기");
         Scanner scanner = new Scanner(System.in);
         int choice = scanner.nextInt();
-        if (choice == 2) {
+        if (choice == 1) {
             try {
                 Thread.sleep(1000); // 1초 지연
             } catch (InterruptedException e) {
@@ -160,7 +160,4 @@ public class MemoList {
             }
         }
     }
-
-
-
 }
