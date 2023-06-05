@@ -11,8 +11,6 @@ public class MemoList {
         memos = new LinkedList<>(); // MemoVO 객체를 저장하기 위한 ArrayList 객체
     }
 
-
-
     public static void addMemo(String name, String pw, String memo) {
         int num = memos.size() + 1;
         memos.add(new MemoEx.MemoVO(num, name, pw, memo));
@@ -74,9 +72,11 @@ public class MemoList {
     }
 
     public void updateIdx(int idx){
+        int i = 1;
         for(MemoVO m : memos){
-            if(m.getIdx() == idx+1) {
-                m.setIdx(idx);
+            if(m.getIdx() == idx+i) {
+                m.setIdx(idx+i-1);
+                i++;
             }
         }
     }
@@ -101,7 +101,7 @@ public class MemoList {
             return;
         }
         else {
-            if(pw == memo.getPassword()){
+            if(memo.getPassword().equals(pw)){
                 // 비밀번호 일치시 삭제
 
                 ////////////////////////////////////////////////////////////////////////
