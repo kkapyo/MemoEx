@@ -42,7 +42,10 @@ public class MemoVO {
         return createdDate;
     }
 
-    public String getPassword(){return password;}
+    public String getPassword(){
+            return password;
+    }
+
     public void setCreatedDate(LocalDateTime date){this.createdDate = date;}
     public void setContent(String content){this.content = content;}
 }
