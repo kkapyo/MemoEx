@@ -5,6 +5,12 @@ import java.util.Scanner;
 public class MemoApp {
     private static MemoList memoList;
 
+    public static void memoDelete(){
+        Scanner scDel = new Scanner(System.in);
+        String choiceDel = scDel.nextLine();
+        memoList.deleteMemo(Integer.parseInt(choiceDel));
+    }
+
     public static void main(String[] args) {
         memoList = new MemoList(); // MemoList 객체 생성
         Scanner scanner = new Scanner(System.in);
@@ -15,7 +21,7 @@ public class MemoApp {
             System.out.println("│   1. 입력     │");
             System.out.println("│   2. 목록     │");
             System.out.println("│   3. 수정     │");
-            System.out.println("│   4. 삭제     │");
+            System.out.println("│   4. 삭제     │"); // 내 파트
             System.out.println("│   5. 종료     │");
             System.out.print("메뉴를 선택하세요: ");
             String choiceStr = scanner.nextLine();
@@ -28,7 +34,6 @@ public class MemoApp {
                 continue;
             }
 
-
             switch (choice) {
                 case 1:
                     // 입력 메뉴 추가
@@ -40,9 +45,24 @@ public class MemoApp {
                     break;
                 case 3:
                     // 수정 메뉴
+                    System.out.println("몇번 째 글을 수정할까요?");
+                    //글 목록 출력
+                    Scanner sc = new Scanner(System.in);
+                    String num = sc.next();
+                    int number = 0;
+                    try {
+                        number = Integer.parseInt(num);
+                    }
+                    catch (NumberFormatException e){
+                        System.out.println("잘못된 입력입니다. 숫자를 입력해주세요.");
+                    }
+
+                    memoList.updateMemo(number);
                     break;
+
                 case 4:
-                    // 삭제 처리 메뉴
+                    // 삭제 메뉴
+                    memoDelete();
                     break;
                 case 5:
                     System.out.println("프로그램을 종료합니다.");
@@ -66,8 +86,8 @@ public class MemoApp {
         System.out.print("메모를 입력하세요 >>");
         String memoInput = sc.nextLine();
         MemoVO memo = new MemoVO();
-        MemoList.addMemo(count, nameInput, pwInput, memoInput);
-        MemoList.displayMemo(count-1);
+        MemoList.addMemo(1, nameInput, pwInput, memoInput);
+        MemoList.displayMemo(1);
     }
 
 
