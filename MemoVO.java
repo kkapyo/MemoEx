@@ -12,6 +12,16 @@ public class MemoVO {
 
     // Getter  Setter 메서드
 
+    public MemoVO(String writer, String password, String content) {
+        this.writer = writer;
+        this.password = password;
+        this.content = content;
+    }
+
+    public String getDisplay() {
+        return writer + " , " + password + " , " + content;
+    }
+
     public int getIdx() {
         return idx;
     }
