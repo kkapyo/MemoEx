@@ -1,5 +1,6 @@
 package MemoEx;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class MemoVO {
@@ -7,8 +8,8 @@ public class MemoVO {
     private String writer; // 작성자 이름
     private String password; // 비밀번호
     private String content; // 게시글
-    private Date createdDate; // 작성일 ( 컴퓨터 시스템의 날짜와 시간 ==> Calendar
-    private Date modifiedDate; // 수정
+    private LocalDateTime createdDate; // 작성일 ( 컴퓨터 시스템의 날짜와 시간 ==> Calendar
+
 
     // Getter  Setter 메서드
 
@@ -34,7 +35,10 @@ public class MemoVO {
         return content;
     }
 
-    public Date getCreatedDate() {
+    public LocalDateTime getCreatedDate() {
         return createdDate;
     }
+    public String getPassword(){return password;}
+    public void setCreatedDate(LocalDateTime date){this.createdDate = date;}
+    public void setContent(String content){this.content = content;}
 }
