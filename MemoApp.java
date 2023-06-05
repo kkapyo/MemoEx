@@ -31,7 +31,7 @@ public class MemoApp {
 
             switch (choice) {
                 case 1:
-                    // 입력 메뉴
+                    // 입력 메뉴 추가
                     break;
                 case 2:
                     // 목록 보기 메뉴
