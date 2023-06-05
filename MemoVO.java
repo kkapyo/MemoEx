@@ -11,4 +11,20 @@ public class MemoVO {
     private Date modifiedDate; // 수정
 
     // Getter  Setter 메서드
+
+    public int getIdx() {
+        return idx;
+    }
+
+    public String getWriter() {
+        return writer;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
 }

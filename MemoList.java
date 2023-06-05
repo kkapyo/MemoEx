@@ -28,7 +28,15 @@ public class MemoList {
 
     public void printAllMemos() {
         // 리스트에 있는 모든 메모를 출력하는 메서드
+            System.out.println("========== 메모 목록 ==========");
+            for (MemoVO memo : memos) {
+                System.out.println("글 번호: " + memo.getIdx());
+                System.out.println("작성자: " + memo.getWriter());
+                System.out.println("작성일: " + memo.getCreatedDate());
+                System.out.println("글 내용: " + memo.getContent());
+                System.out.println("==============================");
+            }
     }
-
-    // 다른 메서드 추가할거있을까요?
 }
+    // 다른 메서드 추가할거있을까요?
+

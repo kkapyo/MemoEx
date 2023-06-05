@@ -35,6 +35,7 @@ public class MemoApp {
                     break;
                 case 2:
                     // 목록 보기 메뉴
+                    memoList.printAllMemos();
                     break;
                 case 3:
                     // 수정 메뉴
