@@ -24,7 +24,8 @@ public class MemoList {
 
     public void updateMemo(int idx) {
         // idx에 해당하는 메모를 업데이트하는 메서드 (수정)
-        if(memos.get(idx) == null){
+        int adjustedIndex = idx - 1;
+        if(memos.get(adjustedIndex) == null){
             System.out.println("메모가 존재하지 않습니다.");
         }
         else{
@@ -32,11 +33,11 @@ public class MemoList {
             System.out.print("패스워드 입력 : ");
             Scanner sc = new Scanner(System.in);
             String psw = sc.next();
-            if(memos.get(idx).getPassword().equals(psw)){       //패스워드 맞는지 화깅ㄴ
+            if(memos.get(adjustedIndex).getPassword().equals(psw)){       //패스워드 맞는지 화깅ㄴ
                 System.out.println("수정할 내용을 입력해주세요.");
                 String str = sc.next();
-                memos.get(idx).setContent(str);                 //게시글 수정
-                memos.get(idx).setCreatedDate(LocalDateTime.now());//날짜 수
+                memos.get(adjustedIndex).setContent(str);                 //게시글 수정
+                memos.get(adjustedIndex).setCreatedDate(LocalDateTime.now());//날짜 수
                 System.out.println("수정했습니다.");
 
             }
