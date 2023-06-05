@@ -22,6 +22,11 @@ public class MemoList {
         System.out.println(memo.getDisplay());
     }
 
+    public MemoVO getMemo(int idx) {
+        // idx에 해당하는 메모를 리스트에서 가져오는 메서드
+        return null; // 일단 임시로 null로 적어놨습니다.
+    }
+
     public void updateMemo(int idx) {
         // idx에 해당하는 메모를 업데이트하는 메서드 (수정)
         int adjustedIndex = idx - 1;
@@ -40,6 +45,9 @@ public class MemoList {
                 memos.get(adjustedIndex).setCreatedDate(LocalDateTime.now());//날짜 수
                 System.out.println("수정했습니다.");
 
+
+                updateIdx(idx);
+                memos.get(idx).setIdx(1);
             }
             else {
                 System.out.println("비밀번호가 틀립니다.");
@@ -69,6 +77,12 @@ public class MemoList {
 
     public void updateIdx(int idx){
         int i = 1;
+        for(MemoVO m : memos){
+            if(m.getIdx() < idx) {
+                m.setIdx(m.getIdx()+1);
+
+            }
+        }
         for(MemoVO m : memos){
             if(m.getIdx() == idx+i) {
                 m.setIdx(idx+i-1);
@@ -156,4 +170,7 @@ public class MemoList {
             }
         }
     }
+
+
+
 }

@@ -77,6 +77,7 @@ public class MemoApp {
         }
     }
 
+
     private static void memoInput() {
         Scanner sc = new Scanner(System.in);
         System.out.print("이름을 입력하세요 >> ");
@@ -90,4 +91,6 @@ public class MemoApp {
         MemoList.displayMemo();
     }
 
+
+    // 필요한 경우 추가 메서드
 }
