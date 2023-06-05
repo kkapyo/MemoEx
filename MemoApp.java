@@ -86,8 +86,8 @@ public class MemoApp {
         System.out.print("메모를 입력하세요 >>");
         String memoInput = sc.nextLine();
         MemoVO memo = new MemoVO();
-        MemoList.addMemo(1, nameInput, pwInput, memoInput);
-        MemoList.displayMemo(1);
+        MemoList.addMemo(nameInput, pwInput, memoInput);
+        MemoList.displayMemo();
     }
 
 

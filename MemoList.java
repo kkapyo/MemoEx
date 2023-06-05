@@ -13,13 +13,14 @@ public class MemoList {
 
 
 
-    public static void addMemo(int num, String name, String pw, String memo) {
+    public static void addMemo(String name, String pw, String memo) {
+        int num = memos.size() + 1;
         memos.add(new MemoEx.MemoVO(num, name, pw, memo));
         // 메모를 리스트에 추가하는 메서드
     }
 
-    public static void displayMemo(int num) {
-        MemoVO memo = memos.get(num);
+    public static void displayMemo() {
+        MemoVO memo = memos.get(memos.size() - 1);
         System.out.println(memo.getDisplay());
     }
 
