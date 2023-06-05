@@ -29,7 +29,7 @@ public class MemoList {
 
     public void updateMemo(int idx) {
         // idx에 해당하는 메모를 업데이트하는 메서드 (수정)
-        if(memos.get(idx) == null){
+        if(memos.get(idx-1) == null){
             System.out.println("메모가 존재하지 않습니다.");
         }
         else{
@@ -44,6 +44,9 @@ public class MemoList {
                 memos.get(idx).setCreatedDate(LocalDateTime.now());//날짜 수
                 System.out.println("수정했습니다.");
 
+
+                updateIdx(idx);
+                memos.get(idx).setIdx(1);
             }
             else {
                 System.out.println("비밀번호가 틀립니다.");
@@ -73,6 +76,12 @@ public class MemoList {
 
     public void updateIdx(int idx){
         int i = 1;
+        for(MemoVO m : memos){
+            if(m.getIdx() < idx) {
+                m.setIdx(m.getIdx()+1);
+
+            }
+        }
         for(MemoVO m : memos){
             if(m.getIdx() == idx+i) {
                 m.setIdx(idx+i-1);

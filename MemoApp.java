@@ -57,7 +57,7 @@ public class MemoApp {
                         System.out.println("잘못된 입력입니다. 숫자를 입력해주세요.");
                     }
 
-                    memoList.updateMemo(number);
+                    memoList.updateMemo(number-1);
                     break;
 
                 case 4:
