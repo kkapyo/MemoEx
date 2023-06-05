@@ -55,6 +55,9 @@ public class MemoApp {
             }
         }
     }
+
+
+
     private static void memoInput() {
         Scanner sc = new Scanner(System.in);
         System.out.print("이름을 입력하세요 >> ");
@@ -63,8 +66,10 @@ public class MemoApp {
         String pwInput = sc.nextLine();
         System.out.print("메모를 입력하세요 >>");
         String memoInput = sc.nextLine();
-        MemoList.addMemo(nameInput, pwInput, memoInput);
-        MemoList.displayMemo();
+        MemoVO memo = new MemoVO();
+        int count = memo.inputNumber();
+        MemoList.addMemo(count, nameInput, pwInput, memoInput);
+        MemoList.displayMemo(count-1);
     }
 
 
