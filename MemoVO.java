@@ -44,7 +44,6 @@ public class MemoVO {
     public LocalDateTime getCreatedDate() {
         return createdDate;
     }
-    public String getPassword(){return password;}
     public void setCreatedDate(LocalDateTime date){this.createdDate = date;}
     public void setContent(String content){this.content = content;}
 }

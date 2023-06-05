@@ -70,9 +70,11 @@ public class MemoList {
     }
 
     public void updateIdx(int idx){
+        int i = 1;
         for(MemoVO m : memos){
-            if(m.getIdx() == idx+1) {
-                m.setIdx(idx);
+            if(m.getIdx() == idx+i) {
+                m.setIdx(idx+i-1);
+                i++;
             }
         }
     }
@@ -97,7 +99,7 @@ public class MemoList {
             return;
         }
         else {
-            if(pw == memo.getPassword()){
+            if(memo.getPassword().equals(pw)){
                 // 비밀번호 일치시 삭제
 
                 ////////////////////////////////////////////////////////////////////////
