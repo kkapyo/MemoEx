@@ -130,8 +130,37 @@ public class MemoList {
     }
 
     public void printAllMemos() {
-        // 리스트에 있는 모든 메모를 출력하는 메서드
+        System.out.println("========== 메모 목록 ==========");
+        if (memos.isEmpty()) {
+            System.out.println("글 목록이 없습니다.");
+            try {
+                Thread.sleep(1000); // 1초 지연
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return; // 메인으로 돌아가기
+        }
+
+        for (MemoVO memo : memos) {
+            System.out.println("글 번호: " + memo.getIdx());
+            System.out.println("작성자: " + memo.getWriter());
+            System.out.println("작성일: " + memo.getCreatedDate());
+            System.out.println("글 내용: " + memo.getContent());
+            System.out.println("==============================");
+        }
+
+        System.out.println("\n1. 돌아가기");
+        Scanner scanner = new Scanner(System.in);
+        int choice = scanner.nextInt();
+        if (choice == 2) {
+            try {
+                Thread.sleep(1000); // 1초 지연
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    // 다른 메서드 추가할거있을까요?
+
+
 }
