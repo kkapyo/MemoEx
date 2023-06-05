@@ -19,10 +19,6 @@ public class MemoVO {
         this.password = password;
         this.content = content;
     }
-    public int inputNumber() {
-        idx++;
-        return idx;
-    }
     public String getDisplay() {
         return idx + ") " + writer + " , " + password + " , " + content;
     }
