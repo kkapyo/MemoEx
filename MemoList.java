@@ -40,9 +40,8 @@ public class MemoList {
                 memos.get(adjustedIndex).setCreatedDate(LocalDateTime.now());//날짜 수
                 System.out.println("수정했습니다.");
 
-
-                updateIdx(idx);
-                memos.get(idx).setIdx(1);
+                //updateIdx(idx);
+                //memos.get(idx).setIdx(1);
             }
             else {
                 System.out.println("비밀번호가 틀립니다.");
@@ -73,12 +72,6 @@ public class MemoList {
     public void updateIdx(int idx){
         int i = 1;
         for(MemoVO m : memos){
-            if(m.getIdx() < idx) {
-                m.setIdx(m.getIdx()+1);
-
-            }
-        }
-        for(MemoVO m : memos){
             if(m.getIdx() == idx+i) {
                 m.setIdx(idx+i-1);
                 i++;
@@ -87,7 +80,6 @@ public class MemoList {
     }
 
     public void deleteMemo(int idx) {
-
         ////////////////////////////////////////////////////////////////////////
         // (1) idx값으로 MemoVO 객체 얻기
         //MemoVO memo = memos.get(idx);
@@ -165,7 +157,4 @@ public class MemoList {
             }
         }
     }
-
-
-
 }
