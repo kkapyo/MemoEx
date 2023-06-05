@@ -5,21 +5,25 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class MemoList {
-    private List<MemoVO> memos; // 메모들 저장하는 ArrayList
+    private static List<MemoVO> memos; // 메모들 저장하는 ArrayList
 
     public MemoList() {
         memos = new LinkedList<>(); // MemoVO 객체를 저장하기 위한 ArrayList 객체
     }
 
+
+
     public static void addMemo(String name, String pw, String memo) {
-        memos.add(new MemoEx.MemoVO(name, pw, memo));
+        int num = memos.size() + 1;
+        memos.add(new MemoEx.MemoVO(num, name, pw, memo));
         // 메모를 리스트에 추가하는 메서드
     }
 
     public static void displayMemo() {
-        MemoVO memo = memos.get(0);
+        MemoVO memo = memos.get(memos.size() - 1);
         System.out.println(memo.getDisplay());
     }
+
     public MemoVO getMemo(int idx) {
         // idx에 해당하는 메모를 리스트에서 가져오는 메서드
         return null; // 일단 임시로 null로 적어놨습니다.
