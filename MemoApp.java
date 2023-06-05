@@ -15,7 +15,7 @@ public class MemoApp {
             System.out.println("│   1. 입력     │");
             System.out.println("│   2. 목록     │");
             System.out.println("│   3. 수정     │");
-            System.out.println("│   4. 삭제     │");
+            System.out.println("│   4. 삭제     │"); // 내 파트
             System.out.println("│   5. 종료     │");
             System.out.print("메뉴를 선택하세요: ");
             String choiceStr = scanner.nextLine();
