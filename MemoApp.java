@@ -25,7 +25,7 @@ public class MemoApp {
             System.out.println("│   5. 종료     │");
             System.out.print("메뉴를 선택하세요: ");
             String choiceStr = scanner.nextLine();
-
+            int count = 0;
             int choice;
             try {
                 choice = Integer.parseInt(choiceStr); // 입력된 문자열을 정수롤 변환
@@ -75,6 +75,8 @@ public class MemoApp {
             }
         }
     }
+
+
     private static void memoInput() {
         Scanner sc = new Scanner(System.in);
         System.out.print("이름을 입력하세요 >> ");
@@ -83,6 +85,7 @@ public class MemoApp {
         String pwInput = sc.nextLine();
         System.out.print("메모를 입력하세요 >>");
         String memoInput = sc.nextLine();
+        MemoVO memo = new MemoVO();
         MemoList.addMemo(nameInput, pwInput, memoInput);
         MemoList.displayMemo();
     }
