@@ -1,8 +1,8 @@
 package MemoEx;
-
+import java.time.LocalDateTime;
+import java.util.Scanner;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Scanner;
 
 public class MemoList {
     private List<MemoVO> memos; // 메모들 저장하는 ArrayList
@@ -27,6 +27,26 @@ public class MemoList {
 
     public void updateMemo(int idx) {
         // idx에 해당하는 메모를 업데이트하는 메서드 (수정)
+        if(memos.get(idx) == null){
+            System.out.println("메모가 존재하지 않습니다.");
+        }
+        else{
+            //수정
+            System.out.print("패스워드 입력 : ");
+            Scanner sc = new Scanner(System.in);
+            String psw = sc.next();
+            if(memos.get(idx).getPassword().equals(psw)){       //패스워드 맞는지 화깅ㄴ
+                System.out.println("수정할 내용을 입력해주세요.");
+                String str = sc.next();
+                memos.get(idx).setContent(str);                 //게시글 수정
+                memos.get(idx).setCreatedDate(LocalDateTime.now());//날짜 수
+                System.out.println("수정했습니다.");
+
+            }
+            else {
+                System.out.println("비밀번호가 틀립니다.");
+            }
+        }
     }
 
     public MemoVO getMemoNum(int idx){
