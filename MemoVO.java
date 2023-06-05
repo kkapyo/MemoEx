@@ -1,4 +1,4 @@
-package Memo;
+package MemoEx;
 
 import java.util.Date;
 
