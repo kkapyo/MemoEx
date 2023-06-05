@@ -11,8 +11,6 @@ public class MemoList {
         memos = new LinkedList<>(); // MemoVO 객체를 저장하기 위한 ArrayList 객체
     }
 
-
-
     public static void addMemo(String name, String pw, String memo) {
         int num = memos.size() + 1;
         memos.add(new MemoEx.MemoVO(num, name, pw, memo));
