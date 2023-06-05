@@ -10,13 +10,15 @@ public class MemoVO {
     private String content; // 게시글
     private LocalDateTime createdDate; // 작성일 ( 컴퓨터 시스템의 날짜와 시간 ==> Calendar
 
-
     // Getter  Setter 메서드
-
     public MemoVO(String writer, String password, String content) {
         this.writer = writer;
         this.password = password;
         this.content = content;
+    }
+
+    public String getPassword(){
+        return password;
     }
 
     public String getDisplay() {
@@ -25,6 +27,10 @@ public class MemoVO {
 
     public int getIdx() {
         return idx;
+    }
+
+    public void setIdx(int idx){
+        this.idx = idx;
     }
 
     public String getWriter() {
