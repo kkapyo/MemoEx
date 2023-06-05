@@ -5,6 +5,12 @@ import java.util.Scanner;
 public class MemoApp {
     private static MemoList memoList;
 
+    public static void memoDelete(){
+        Scanner scDel = new Scanner(System.in);
+        String choiceDel = scDel.nextLine();
+        memoList.deleteMemo(Integer.parseInt(choiceDel));
+    }
+
     public static void main(String[] args) {
         memoList = new MemoList(); // MemoList 객체 생성
         Scanner scanner = new Scanner(System.in);
@@ -28,7 +34,6 @@ public class MemoApp {
                 continue;
             }
 
-
             switch (choice) {
                 case 1:
                     // 입력 메뉴
@@ -40,7 +45,8 @@ public class MemoApp {
                     // 수정 메뉴
                     break;
                 case 4:
-                    // 삭제 처리 메뉴
+                    // 삭제 메뉴
+                    memoDelete();
                     break;
                 case 5:
                     System.out.println("프로그램을 종료합니다.");
