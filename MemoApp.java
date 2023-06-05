@@ -31,7 +31,8 @@ public class MemoApp {
 
             switch (choice) {
                 case 1:
-                    // 입력 메뉴
+                    // 입력 메뉴 추가
+                    memoInput();
                     break;
                 case 2:
                     // 목록 보기 메뉴
@@ -54,6 +55,18 @@ public class MemoApp {
             }
         }
     }
+    private static void memoInput() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("이름을 입력하세요 >> ");
+        String nameInput = sc.nextLine();
+        System.out.print("비밀번호를 입력하세요 >>");
+        String pwInput = sc.nextLine();
+        System.out.print("메모를 입력하세요 >>");
+        String memoInput = sc.nextLine();
+        MemoEx01.MemoList.addMemo(nameInput, pwInput, memoInput);
+        MemoEx01.MemoList.displayMemo();
+    }
+
 
     // 필요한 경우 추가 메서드
 }
