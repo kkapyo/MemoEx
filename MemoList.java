@@ -18,7 +18,7 @@ public class MemoList {
         return null; // 일단 임시로 null로 적어놨습니다.
     }
 
-    public void updateMemo(int idx, MemoVO updatedMemo) {
+    public void updateMemo(int idx) {
         // idx에 해당하는 메모를 업데이트하는 메서드 (수정)
     }
 
@@ -28,15 +28,7 @@ public class MemoList {
 
     public void printAllMemos() {
         // 리스트에 있는 모든 메모를 출력하는 메서드
-            System.out.println("========== 메모 목록 ==========");
-            for (MemoVO memo : memos) {
-                System.out.println("글 번호: " + memo.getIdx());
-                System.out.println("작성자: " + memo.getWriter());
-                System.out.println("작성일: " + memo.getCreatedDate());
-                System.out.println("글 내용: " + memo.getContent());
-                System.out.println("==============================");
-            }
     }
-}
-    // 다른 메서드 추가할거있을까요?
 
+    // 다른 메서드 추가할거있을까요?
+}
