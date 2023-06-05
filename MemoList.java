@@ -22,11 +22,6 @@ public class MemoList {
         System.out.println(memo.getDisplay());
     }
 
-    public MemoVO getMemo(int idx) {
-        // idx에 해당하는 메모를 리스트에서 가져오는 메서드
-        return null; // 일단 임시로 null로 적어놨습니다.
-    }
-
     public void updateMemo(int idx) {
         // idx에 해당하는 메모를 업데이트하는 메서드 (수정)
         if(memos.get(idx) == null){
@@ -51,7 +46,7 @@ public class MemoList {
         }
     }
 
-    public MemoVO getMemoNum(int idx){
+    public MemoVO getMemo(int idx){
         for(MemoVO m : memos){
             if(m.getIdx() == idx) {
                 return m;
@@ -88,19 +83,19 @@ public class MemoList {
         //MemoVO memo = memos.get(idx);
 
         // (2) 삭제 시 글 번호를 넘겨 받고 리스트에서 글 번호에 해당하는  글 1건을 얻어와 리턴
-        MemoVO memo = getMemoNum(idx);
+        MemoVO memo = getMemo(idx);
         ////////////////////////////////////////////////////////////////////////
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("비밀번호를 입력 해주세요");
-        System.out.print("입력: ");
-        String pw = sc.nextLine();
-
-        if(getMemo(idx) == null){
+        if(memo == null){
             System.out.println("해당 메모가 존재하지 않습니다.");
             return;
         }
         else {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("비밀번호를 입력 해주세요");
+            System.out.print("입력: ");
+            String pw = sc.nextLine();
+
             if(memo.getPassword().equals(pw)){
                 // 비밀번호 일치시 삭제
 
@@ -110,14 +105,14 @@ public class MemoList {
 
                 // (2) loop로 하나씩 getIdx()으로 돌면서 해당 idx가 맞으면 그 인덱스 return
                 int index = getMemoIndex(idx);
-                memos.remove(index);
+                memos.remove(index-1);
                 ////////////////////////////////////////////////////////////////////////
 
                 // 글 삭제 후 글 번호를 다시 붙여준다.
                 //글이 삭제된 후 새 글이 입력될 때 idx가 기존 idx값에 이어서 1씩 증가할 수 있도록 count의 값을 수정한다.
                 updateIdx(idx);
 
-                System.out.println("선택하신 " + idx + " 글이 삭제가 되었습니다.");
+                System.out.println("선택하신 " + idx + "번 글이 삭제가 되었습니다.");
                 return;
             }
             else {
