@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class MemoApp {
     private static MemoList memoList;
 
-    public static void memoDelete(){
+    private static void memoDelete(){
         Scanner scDel = new Scanner(System.in);
         System.out.println("몇번 째 글을 삭제할까요?");
         String choiceDel = scDel.nextLine();
@@ -60,7 +60,6 @@ public class MemoApp {
                     }
                     memoList.updateMemo(number);
                     break;
-
                 case 4:
                     // 삭제 메뉴
                     memoDelete();
@@ -77,7 +76,6 @@ public class MemoApp {
         }
     }
 
-
     private static void memoInput() {
         Scanner sc = new Scanner(System.in);
         System.out.print("이름을 입력하세요 >> ");
@@ -90,7 +88,4 @@ public class MemoApp {
         MemoList.addMemo(nameInput, pwInput, dateTime,  memoInput);
         MemoList.displayMemo();
     }
-
-
-    // 필요한 경우 추가 메서드
 }
