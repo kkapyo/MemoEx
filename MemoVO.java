@@ -10,7 +10,21 @@ public class MemoVO {
     private Date createdDate; // 작성일 ( 컴퓨터 시스템의 날짜와 시간 ==> Calendar
 
     // Getter  Setter 메서드
-    public int getIdx(){
+    public MemoVO(String writer, String password, String content) {
+        this.writer = writer;
+        this.password = password;
+        this.content = content;
+    }
+
+    public String getPassword(){
+        return password;
+    }
+
+    public String getDisplay() {
+        return writer + " , " + password + " , " + content;
+    }
+
+    public int getIdx() {
         return idx;
     }
 
@@ -18,7 +32,15 @@ public class MemoVO {
         this.idx = idx;
     }
 
-    public String getPassword(){
-        return password;
+    public String getWriter() {
+        return writer;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
     }
 }
