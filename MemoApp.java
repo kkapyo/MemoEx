@@ -6,13 +6,6 @@ import java.util.Scanner;
 public class MemoApp {
     private static MemoList memoList;
 
-    private static void memoDelete(){
-        Scanner scDel = new Scanner(System.in);
-        System.out.println("몇번 째 글을 삭제할까요?");
-        String choiceDel = scDel.nextLine();
-        memoList.deleteMemo(Integer.parseInt(choiceDel));
-    }
-
     public static void main(String[] args) {
         memoList = new MemoList(); // MemoList 객체 생성
         Scanner scanner = new Scanner(System.in);
@@ -47,18 +40,7 @@ public class MemoApp {
                     break;
                 case 3:
                     // 수정 메뉴
-                    System.out.println("몇번 째 글을 수정할까요?");
-                    //글 목록 출력
-                    Scanner sc = new Scanner(System.in);
-                    String num = sc.next();
-                    int number = 0;
-                    try {
-                        number = Integer.parseInt(num);
-                    }
-                    catch (NumberFormatException e){
-                        System.out.println("잘못된 입력입니다. 숫자를 입력해주세요.");
-                    }
-                    memoList.updateMemo(number);
+                    memoUpdate();
                     break;
                 case 4:
                     // 삭제 메뉴
@@ -74,6 +56,27 @@ public class MemoApp {
                     break;
             }
         }
+    }
+    private static void memoUpdate() {
+        System.out.println("몇번 째 글을 수정할까요?");
+        //글 목록 출력
+        Scanner sc = new Scanner(System.in);
+        String num = sc.next();
+        int number = 0;
+        try {
+            number = Integer.parseInt(num);
+        }
+        catch (NumberFormatException e){
+            System.out.println("잘못된 입력입니다. 숫자를 입력해주세요.");
+        }
+        memoList.updateMemo(number);
+    }
+
+    private static void memoDelete(){
+        Scanner scDel = new Scanner(System.in);
+        System.out.println("몇번 째 글을 삭제할까요?");
+        String choiceDel = scDel.nextLine();
+        memoList.deleteMemo(Integer.parseInt(choiceDel));
     }
 
     private static void memoInput() {
