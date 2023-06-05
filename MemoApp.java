@@ -1,5 +1,6 @@
 package MemoEx;
 
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class MemoApp {
@@ -7,6 +8,7 @@ public class MemoApp {
 
     public static void memoDelete(){
         Scanner scDel = new Scanner(System.in);
+        System.out.println("몇번 째 글을 삭제할까요?");
         String choiceDel = scDel.nextLine();
         memoList.deleteMemo(Integer.parseInt(choiceDel));
     }
@@ -56,8 +58,7 @@ public class MemoApp {
                     catch (NumberFormatException e){
                         System.out.println("잘못된 입력입니다. 숫자를 입력해주세요.");
                     }
-
-                    memoList.updateMemo(number-1);
+                    memoList.updateMemo(number);
                     break;
 
                 case 4:
@@ -85,8 +86,8 @@ public class MemoApp {
         String pwInput = sc.nextLine();
         System.out.print("메모를 입력하세요 >>");
         String memoInput = sc.nextLine();
-        MemoVO memo = new MemoVO();
-        MemoList.addMemo(nameInput, pwInput, memoInput);
+        LocalDateTime dateTime = LocalDateTime.now();
+        MemoList.addMemo(nameInput, pwInput, dateTime,  memoInput);
         MemoList.displayMemo();
     }
 
