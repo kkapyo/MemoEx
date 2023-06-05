@@ -15,6 +15,11 @@ public class MemoList {
         memos.add(new MemoEx.MemoVO(name, pw, memo));
         // 메모를 리스트에 추가하는 메서드
     }
+
+    public static void displayMemo() {
+        MemoVO memo = memos.get(0);
+        System.out.println(memo.getDisplay());
+    }
     public MemoVO getMemo(int idx) {
         // idx에 해당하는 메모를 리스트에서 가져오는 메서드
         return null; // 일단 임시로 null로 적어놨습니다.
